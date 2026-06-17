@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xohus — Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Xohus, a full-stack developer and digital marketplace owner building clean web systems, tools, and online brands." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui"]
+          },
+          colors: {
+            paper: "#FAFAFA",
+            ink: "#18181B",
+            muted: "#71717A",
+            line: "#E4E4E7",
+            soft: "#F4F4F5"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    ::selection {
+      background: #18181B;
+      color: #FAFAFA;
+    }
+
+    body {
+      background: #FAFAFA;
+      color: #18181B;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    .magnetic {
+      transform-style: preserve-3d;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      will-change: transform;
+    }
+
+    .project-shot {
+      background:
+        linear-gradient(135deg, rgba(24,24,27,0.05), rgba(24,24,27,0.01)),
+        radial-gradient(circle at 20% 20%, rgba(24,24,27,0.08), transparent 28%),
+        radial-gradient(circle at 80% 70%, rgba(24,24,27,0.06), transparent 24%),
+        #F4F4F5;
+    }
+
+    .thin-noise {
+      background-image:
+        linear-gradient(rgba(24, 24, 27, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 24, 27, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-ink selection:text-paper antialiased">
+  <header class="fixed left-0 top-0 z-50 w-full border-b border-line/70 bg-paper/80 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+      <a href="#" class="text-sm font-bold tracking-tight">Xohus</a>
+
+      <div class="hidden items-center gap-8 text-sm text-muted md:flex">
+        <a href="#work" class="transition hover:text-ink">Work</a>
+        <a href="#stack" class="transition hover:text-ink">Stack</a>
+        <a href="#about" class="transition hover:text-ink">About</a>
+      </div>
+
+      <a href="#contact" class="magnetic rounded-full border border-ink px-4 py-2 text-sm font-semibold transition hover:bg-ink hover:text-paper">
+        Contact
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="mx-auto max-w-7xl px-5 pb-24 pt-36 md:px-8 md:pb-32 md:pt-44">
+      <div class="grid gap-12 md:grid-cols-12 md:items-end">
+        <div class="md:col-span-8">
+          <p class="mb-6 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
+            Full-Stack Developer / Founder
+          </p>
+
+          <h1 class="max-w-5xl text-[clamp(3.4rem,9vw,8.8rem)] font-extrabold leading-[0.88] tracking-[-0.08em]">
+            Clean systems for digital brands that need to move fast.
+          </h1>
+        </div>
+
+        <div class="md:col-span-4 md:pb-3">
+          <p class="max-w-md text-base leading-8 text-muted md:text-lg">
+            I build web products, storefronts, automation tools, and developer-focused systems with a simple rule:
+            make it useful, make it clean, and do not overcomplicate it.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#work" class="magnetic rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper">
+              View work
+            </a>
+            <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full border border-line px-5 py-3 text-sm font-semibold hover:border-ink">
+              ClarityDevs
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 grid gap-4 border-y border-line py-6 text-sm text-muted md:grid-cols-3">
+        <div>
+          <span class="block font-semibold text-ink">Focus</span>
+          Full-stack development, storefronts, tooling
+        </div>
+        <div>
+          <span class="block font-semibold text-ink">Style</span>
+          Minimal UI, fast flows, clean systems
+        </div>
+        <div>
+          <span class="block font-semibold text-ink">Based around</span>
+          Digital marketplaces, scripts, communities
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="mx-auto max-w-7xl px-5 py-24 md:px-8">
+      <div class="mb-14 grid gap-6 md:grid-cols-12">
+        <div class="md:col-span-7">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
+            Selected Work
+          </p>
+          <h2 class="text-4xl font-extrabold tracking-[-0.05em] md:text-6xl">
+            Projects built with business, utility, and speed in mind.
+          </h2>
+        </div>
+
+        <p class="max-w-md text-base leading-8 text-muted md:col-span-4 md:col-start-9">
+          No bloated showcase. Just the main projects, what they do, and why they matter.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-12">
+        <article class="group md:col-span-7">
+          <a href="https://hexcheats.lol" target="_blank" rel="noreferrer" class="project-link block">
+            <div class="project-shot thin-noise aspect-video overflow-hidden rounded-[2rem] border border-line">
+              <div class="flex h-full items-end justify-between p-7">
+                <div>
+                  <p class="text-sm font-semibold text-muted">Marketplace</p>
+                  <h3 class="mt-2 text-3xl font-extrabold tracking-[-0.04em]">HexCheats</h3>
+                </div>
+                <span class="magnetic rounded-full bg-paper px-4 py-2 text-sm font-semibold">
+                  Open
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-5 grid gap-5 md:grid-cols-12">
+              <div class="md:col-span-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">2026</p>
+                <p class="mt-2 text-sm text-muted">Owner / Storefront</p>
+                <p class="mt-1 text-sm text-muted">Commerce, UX, Community</p>
+              </div>
+              <div class="md:col-span-8">
+                <h3 class="text-2xl font-bold tracking-[-0.03em]">Digital product marketplace with a simple buying flow.</h3>
+                <p class="mt-3 leading-7 text-muted">
+                  HexCheats is built around quick product access, clear browsing, and a community-first support loop.
+                  The goal is simple: make the store easy to understand and fast to use.
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="group md:col-span-5">
+          <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="project-link block">
+            <div class="project-shot aspect-[4/3] overflow-hidden rounded-[2rem] border border-line">
+              <div class="flex h-full flex-col justify-between p-7">
+                <span class="w-fit rounded-full bg-paper px-4 py-2 text-sm font-semibold">Brand</span>
+                <div>
+                  <p class="text-sm font-semibold text-muted">Development</p>
+                  <h3 class="mt-2 text-3xl font-extrabold tracking-[-0.04em]">ClarityDevs</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
+                <span>2026</span>
+                <span>Founder / Developer</span>
+                <span>Web, Tools, Branding</span>
+              </div>
+              <h3 class="text-2xl font-bold tracking-[-0.03em]">A clean dev brand for tools, scripts, and digital systems.</h3>
+              <p class="mt-3 leading-7 text-muted">
+                Clarity is the main brand behind my development work.
+                It keeps the focus on sharp interfaces, useful automation, and projects that do not feel overbuilt.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group md:col-span-5">
+          <a href="#contact" class="project-link block">
+            <div class="project-shot aspect-[4/3] overflow-hidden rounded-[2rem] border border-line">
+              <div class="flex h-full flex-col justify-between p-7">
+                <span class="w-fit rounded-full bg-paper px-4 py-2 text-sm font-semibold">Systems</span>
+                <div>
+                  <p class="text-sm font-semibold text-muted">Game Utilities</p>
+                  <h3 class="mt-2 text-3xl font-extrabold tracking-[-0.04em]">Roblox Tooling</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
+                <span>2025 — 2026</span>
+                <span>Lua Developer</span>
+                <span>Lua, UI, Automation</span>
+              </div>
+              <h3 class="text-2xl font-bold tracking-[-0.03em]">Custom utility scripts with clean UI systems.</h3>
+              <p class="mt-3 leading-7 text-muted">
+                Built mobile-friendly script interfaces, toggles, movement tools, overlays, and automation flows.
+                The work focuses on clean wiring, stable controls, and interfaces that do not feel random.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group md:col-span-7">
+          <a href="#contact" class="project-link block">
+            <div class="project-shot thin-noise aspect-video overflow-hidden rounded-[2rem] border border-line">
+              <div class="flex h-full items-end justify-between p-7">
+                <div>
+                  <p class="text-sm font-semibold text-muted">Operations</p>
+                  <h3 class="mt-2 text-3xl font-extrabold tracking-[-0.04em]">Digital Store Systems</h3>
+                </div>
+                <span class="magnetic rounded-full bg-paper px-4 py-2 text-sm font-semibold">
+                  Details
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-5 grid gap-5 md:grid-cols-12">
+              <div class="md:col-span-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">Ongoing</p>
+                <p class="mt-2 text-sm text-muted">Owner / Operator</p>
+                <p class="mt-1 text-sm text-muted">Stores, Discord, Support</p>
+              </div>
+              <div class="md:col-span-8">
+                <h3 class="text-2xl font-bold tracking-[-0.03em]">Storefronts, community, and support in one flow.</h3>
+                <p class="mt-3 leading-7 text-muted">
+                  I care about the boring parts too: product structure, checkout clarity, user trust, support channels, and simple updates.
+                  A good product is not only what it sells, it is how easy it feels to use.
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack" class="mx-auto max-w-7xl px-5 py-24 md:px-8">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
+            Stack
+          </p>
+          <h2 class="text-4xl font-extrabold tracking-[-0.05em] md:text-6xl">
+            Tools I use when the project needs to be clean and practical.
+          </h2>
+        </div>
+
+        <div class="md:col-span-7">
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div class="rounded-[1.5rem] border border-line p-6">
+              <h3 class="font-bold">Frontend</h3>
+              <p class="mt-3 leading-7 text-muted">HTML, CSS, Tailwind, JavaScript, responsive UI, clean layouts.</p>
+            </div>
+
+            <div class="rounded-[1.5rem] border border-line p-6">
+              <h3 class="font-bold">Backend</h3>
+              <p class="mt-3 leading-7 text-muted">APIs, auth flows, databases, server logic, automation systems.</p>
+            </div>
+
+            <div class="rounded-[1.5rem] border border-line p-6">
+              <h3 class="font-bold">Commerce</h3>
+              <p class="mt-3 leading-7 text-muted">Digital stores, product pages, checkout flow, support structure.</p>
+            </div>
+
+            <div class="rounded-[1.5rem] border border-line p-6">
+              <h3 class="font-bold">Community</h3>
+              <p class="mt-3 leading-7 text-muted">Discord setup, support channels, update systems, user flow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="border-y border-line">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-24 md:grid-cols-12 md:px-8">
+        <div class="md:col-span-4">
+          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-muted">
+            About
+          </p>
+        </div>
+
+        <div class="md:col-span-8">
+          <p class="max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.04em] md:text-5xl">
+            I like building things that look simple on the outside, but actually have the details handled properly.
+          </p>
+
+          <div class="mt-10 grid gap-8 text-base leading-8 text-muted md:grid-cols-2">
+            <p>
+              My work sits between development, business, and product design. I care about the full flow:
+              the idea, the interface, the store, the community, and the little details users notice.
+            </p>
+            <p>
+              I do not chase loud visuals or overbuilt features. I would rather build something clean,
+              useful, and easy to maintain than something that only looks good for five seconds.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-7xl px-5 py-24 md:px-8">
+      <div class="grid gap-10 md:grid-cols-12 md:items-end">
+        <div class="md:col-span-8">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
+            Contact
+          </p>
+          <h2 class="max-w-4xl text-5xl font-extrabold leading-none tracking-[-0.07em] md:text-7xl">
+            Want to build something clean?
+          </h2>
+        </div>
+
+        <div class="md:col-span-4">
+          <p class="mb-6 leading-8 text-muted">
+            Reach me through my public project links. Keep it direct, I usually do the same.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper">
+              ClarityDevs
+            </a>
+            <a href="https://hexcheats.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full border border-line px-5 py-3 text-sm font-semibold hover:border-ink">
+              HexCheats
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line px-5 py-8 md:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-muted md:flex-row md:items-center md:justify-between">
+      <p>© <span id="year"></span> Xohus. Built simple.</p>
+      <p>Full-stack developer / founder / digital operator.</p>
+    </div>
+  </footer>
+
+  <script>
+    const magneticItems = document.querySelectorAll(".magnetic");
+
+    magneticItems.forEach((item) => {
+      item.addEventListener("mousemove", (event) => {
+        const rect = item.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+
+        item.style.transform = `translate(${x * 0.13}px, ${y * 0.13}px)`;
+      });
+
+      item.addEventListener("mouseleave", () => {
+        item.style.transform = "translate(0, 0)";
+      });
+    });
+
+    const projectLinks = document.querySelectorAll(".project-link");
+
+    projectLinks.forEach((link) => {
+      link.addEventListener("mouseenter", () => {
+        link.style.cursor = "pointer";
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
