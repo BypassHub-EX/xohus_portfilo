@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xohus — Full-Stack Developer</title>
-  <meta name="description" content="Portfolio of Xohus, a full-stack developer and digital marketplace owner building clean web systems, tools, and online brands." />
+
+  <title>xohus — full-stack developer</title>
+  <meta name="description" content="xohus portfolio — full-stack developer, founder, digital marketplace owner, and builder of clean online systems." />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ["Inter", "ui-sans-serif", "system-ui"]
+            sans: ["Inter", "system-ui", "sans-serif"]
           },
           colors: {
             paper: "#FAFAFA",
@@ -32,230 +33,516 @@
   </script>
 
   <style>
-    ::selection {
-      background: #18181B;
-      color: #FAFAFA;
+    :root {
+      --paper: #FAFAFA;
+      --ink: #18181B;
+      --muted: #71717A;
+      --line: #E4E4E7;
+      --soft: #F4F4F5;
+      --x: 50%;
+      --y: 50%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--paper);
     }
 
     body {
-      background: #FAFAFA;
-      color: #18181B;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
       font-family: Inter, system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .grain {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      opacity: 0.035;
+      mix-blend-mode: multiply;
+      background-image:
+        radial-gradient(circle at 1px 1px, #18181B 1px, transparent 0);
+      background-size: 18px 18px;
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(24,24,27,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24,24,27,0.055) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+    }
+
+    .aurora {
+      position: absolute;
+      inset: -30%;
+      pointer-events: none;
+      opacity: 0.55;
+      filter: blur(48px);
+      background:
+        radial-gradient(circle at 20% 30%, rgba(24,24,27,0.18), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(113,113,122,0.25), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(24,24,27,0.12), transparent 24%);
+      animation: aurora 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes aurora {
+      0% {
+        transform: translate3d(-2%, -2%, 0) rotate(0deg) scale(1);
+      }
+      100% {
+        transform: translate3d(2%, 3%, 0) rotate(10deg) scale(1.08);
+      }
+    }
+
+    .spotlight {
+      background:
+        radial-gradient(650px circle at var(--x) var(--y), rgba(24,24,27,0.10), transparent 42%),
+        #FAFAFA;
     }
 
     .magnetic {
       transform-style: preserve-3d;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      transition: transform 160ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
       will-change: transform;
     }
 
-    .project-shot {
-      background:
-        linear-gradient(135deg, rgba(24,24,27,0.05), rgba(24,24,27,0.01)),
-        radial-gradient(circle at 20% 20%, rgba(24,24,27,0.08), transparent 28%),
-        radial-gradient(circle at 80% 70%, rgba(24,24,27,0.06), transparent 24%),
-        #F4F4F5;
+    .cursor-dot {
+      pointer-events: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #18181B;
+      transform: translate(-50%, -50%);
+      transition: width 180ms ease, height 180ms ease, opacity 180ms ease;
+      opacity: 0;
+      mix-blend-mode: difference;
     }
 
-    .thin-noise {
-      background-image:
-        linear-gradient(rgba(24, 24, 27, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(24, 24, 27, 0.035) 1px, transparent 1px);
-      background-size: 28px 28px;
+    .cursor-ring {
+      pointer-events: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 99;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(24,24,27,0.28);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 180ms ease, width 180ms ease, height 180ms ease, border-color 180ms ease;
+    }
+
+    .spark {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(24,24,27,0.75);
+      box-shadow: 0 0 18px rgba(24,24,27,0.25);
+      animation: floaty 7s ease-in-out infinite;
+    }
+
+    @keyframes floaty {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.2;
+      }
+      50% {
+        transform: translateY(-18px);
+        opacity: 0.85;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 750ms ease, transform 750ms ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card {
+      transform-style: preserve-3d;
+      transition: transform 260ms ease, border-color 260ms ease, background 260ms ease;
+      will-change: transform;
+    }
+
+    .project-card:hover {
+      border-color: rgba(24,24,27,0.35);
+    }
+
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shine::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.65) 45%, transparent 62%);
+      transform: translateX(-120%);
+      transition: transform 700ms ease;
+      pointer-events: none;
+    }
+
+    .shine:hover::before {
+      transform: translateX(120%);
+    }
+
+    .marquee {
+      display: flex;
+      overflow: hidden;
+      user-select: none;
+      gap: 1rem;
+    }
+
+    .marquee-track {
+      display: flex;
+      min-width: 100%;
+      flex-shrink: 0;
+      justify-content: space-around;
+      gap: 1rem;
+      animation: marquee 22s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-100% - 1rem));
+      }
+    }
+
+    .scroll-progress {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 120;
+      height: 2px;
+      width: 0%;
+      background: #18181B;
+    }
+
+    .logo-img {
+      filter: grayscale(1) contrast(1.05);
+      transition: filter 220ms ease, transform 220ms ease, opacity 220ms ease;
+    }
+
+    .project-card:hover .logo-img {
+      filter: grayscale(0) contrast(1.05);
+      transform: scale(1.04);
+      opacity: 1;
+    }
+
+    .blob {
+      animation: blob 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes blob {
+      0% {
+        border-radius: 45% 55% 50% 50% / 40% 45% 55% 60%;
+        transform: rotate(0deg) scale(1);
+      }
+      100% {
+        border-radius: 55% 45% 42% 58% / 55% 45% 55% 45%;
+        transform: rotate(8deg) scale(1.03);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cursor-dot,
+      .cursor-ring {
+        display: none;
+      }
     }
   </style>
 </head>
 
-<body class="selection:bg-ink selection:text-paper antialiased">
-  <header class="fixed left-0 top-0 z-50 w-full border-b border-line/70 bg-paper/80 backdrop-blur-xl">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-      <a href="#" class="text-sm font-bold tracking-tight">Xohus</a>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="grain"></div>
 
-      <div class="hidden items-center gap-8 text-sm text-muted md:flex">
-        <a href="#work" class="transition hover:text-ink">Work</a>
-        <a href="#stack" class="transition hover:text-ink">Stack</a>
-        <a href="#about" class="transition hover:text-ink">About</a>
+  <header class="fixed left-0 top-0 z-50 w-full border-b border-line/70 bg-paper/75 backdrop-blur-2xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+      <a href="#" class="magnetic group flex items-center gap-3">
+        <span class="grid h-9 w-9 place-items-center rounded-full border border-ink bg-ink text-xs font-black text-paper">
+          xo
+        </span>
+        <span class="text-sm font-black tracking-[-0.04em]">xohus</span>
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm font-medium lowercase text-muted md:flex">
+        <a href="#work" class="magnetic transition hover:text-ink">work</a>
+        <a href="#stack" class="magnetic transition hover:text-ink">stack</a>
+        <a href="#about" class="magnetic transition hover:text-ink">about</a>
       </div>
 
-      <a href="#contact" class="magnetic rounded-full border border-ink px-4 py-2 text-sm font-semibold transition hover:bg-ink hover:text-paper">
-        Contact
+      <a href="#contact" class="magnetic rounded-full border border-ink px-4 py-2 text-sm font-bold lowercase transition hover:bg-ink hover:text-paper">
+        contact
       </a>
     </nav>
   </header>
 
   <main>
-    <section class="mx-auto max-w-7xl px-5 pb-24 pt-36 md:px-8 md:pb-32 md:pt-44">
-      <div class="grid gap-12 md:grid-cols-12 md:items-end">
-        <div class="md:col-span-8">
-          <p class="mb-6 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-            Full-Stack Developer / Founder
-          </p>
+    <section class="spotlight relative min-h-screen overflow-hidden px-5 pt-36 md:px-8 md:pt-44">
+      <div class="aurora"></div>
+      <div class="grid-bg absolute inset-0 opacity-70"></div>
 
-          <h1 class="max-w-5xl text-[clamp(3.4rem,9vw,8.8rem)] font-extrabold leading-[0.88] tracking-[-0.08em]">
-            Clean systems for digital brands that need to move fast.
-          </h1>
-        </div>
+      <span class="spark left-[12%] top-[28%]" style="animation-delay: 0s"></span>
+      <span class="spark left-[44%] top-[18%]" style="animation-delay: 1.4s"></span>
+      <span class="spark left-[78%] top-[34%]" style="animation-delay: 0.7s"></span>
+      <span class="spark left-[68%] top-[76%]" style="animation-delay: 2.2s"></span>
 
-        <div class="md:col-span-4 md:pb-3">
-          <p class="max-w-md text-base leading-8 text-muted md:text-lg">
-            I build web products, storefronts, automation tools, and developer-focused systems with a simple rule:
-            make it useful, make it clean, and do not overcomplicate it.
-          </p>
+      <div class="relative z-10 mx-auto max-w-7xl">
+        <div class="grid gap-12 md:grid-cols-12 md:items-end">
+          <div class="reveal md:col-span-8">
+            <p class="mb-6 text-xs font-black uppercase tracking-[0.32em] text-muted">
+              founder / full-stack dev / digital operator
+            </p>
 
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#work" class="magnetic rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper">
-              View work
-            </a>
-            <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full border border-line px-5 py-3 text-sm font-semibold hover:border-ink">
-              ClarityDevs
-            </a>
+            <h1 class="max-w-5xl text-[clamp(3.4rem,10vw,9.4rem)] font-black leading-[0.84] tracking-[-0.085em]">
+              i build clean systems that don’t feel random.
+            </h1>
+          </div>
+
+          <div class="reveal md:col-span-4 md:pb-3" style="transition-delay: 120ms">
+            <div class="rounded-[2rem] border border-line bg-paper/70 p-6 backdrop-blur-xl">
+              <p class="text-base leading-8 text-muted md:text-lg">
+                i’m xohus. i build stores, tools, scripts, and dev stuff that looks simple on the outside but actually has the details handled.
+              </p>
+
+              <div class="mt-7 flex flex-wrap gap-3">
+                <a href="#work" class="magnetic rounded-full bg-ink px-5 py-3 text-sm font-bold lowercase text-paper">
+                  see work
+                </a>
+                <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full border border-line px-5 py-3 text-sm font-bold lowercase hover:border-ink">
+                  clarity
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="mt-20 grid gap-4 border-y border-line py-6 text-sm text-muted md:grid-cols-3">
-        <div>
-          <span class="block font-semibold text-ink">Focus</span>
-          Full-stack development, storefronts, tooling
+        <div class="reveal mt-20 grid gap-4 border-y border-line py-6 text-sm lowercase text-muted md:grid-cols-4" style="transition-delay: 220ms">
+          <div>
+            <span class="block font-black text-ink">role</span>
+            senior full-stack developer
+          </div>
+          <div>
+            <span class="block font-black text-ink">brands</span>
+            clarity / hexcheats
+          </div>
+          <div>
+            <span class="block font-black text-ink">focus</span>
+            stores, tools, automation
+          </div>
+          <div>
+            <span class="block font-black text-ink">style</span>
+            minimal, sharp, not corny
+          </div>
         </div>
-        <div>
-          <span class="block font-semibold text-ink">Style</span>
-          Minimal UI, fast flows, clean systems
-        </div>
-        <div>
-          <span class="block font-semibold text-ink">Based around</span>
-          Digital marketplaces, scripts, communities
+
+        <div class="reveal mt-10 overflow-hidden rounded-[2rem] border border-line bg-paper/70 py-4 backdrop-blur-xl" style="transition-delay: 300ms">
+          <div class="marquee">
+            <div class="marquee-track text-sm font-black uppercase tracking-[0.25em] text-muted">
+              <span>full-stack</span>
+              <span>storefronts</span>
+              <span>discord systems</span>
+              <span>roblox lua</span>
+              <span>automation</span>
+              <span>branding</span>
+              <span>ui systems</span>
+            </div>
+            <div class="marquee-track text-sm font-black uppercase tracking-[0.25em] text-muted">
+              <span>full-stack</span>
+              <span>storefronts</span>
+              <span>discord systems</span>
+              <span>roblox lua</span>
+              <span>automation</span>
+              <span>branding</span>
+              <span>ui systems</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="work" class="mx-auto max-w-7xl px-5 py-24 md:px-8">
+    <section id="work" class="relative mx-auto max-w-7xl px-5 py-24 md:px-8">
       <div class="mb-14 grid gap-6 md:grid-cols-12">
-        <div class="md:col-span-7">
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-            Selected Work
+        <div class="reveal md:col-span-7">
+          <p class="mb-4 text-xs font-black uppercase tracking-[0.32em] text-muted">
+            selected work
           </p>
-          <h2 class="text-4xl font-extrabold tracking-[-0.05em] md:text-6xl">
-            Projects built with business, utility, and speed in mind.
+          <h2 class="text-4xl font-black tracking-[-0.06em] md:text-6xl">
+            stuff i actually built / run.
           </h2>
         </div>
 
-        <p class="max-w-md text-base leading-8 text-muted md:col-span-4 md:col-start-9">
-          No bloated showcase. Just the main projects, what they do, and why they matter.
+        <p class="reveal max-w-md text-base leading-8 lowercase text-muted md:col-span-4 md:col-start-9" style="transition-delay: 120ms">
+          clean case-study style. no random 3-card template thing. just the main projects with enough detail to look legit.
         </p>
       </div>
 
       <div class="grid gap-5 md:grid-cols-12">
-        <article class="group md:col-span-7">
-          <a href="https://hexcheats.lol" target="_blank" rel="noreferrer" class="project-link block">
-            <div class="project-shot thin-noise aspect-video overflow-hidden rounded-[2rem] border border-line">
-              <div class="flex h-full items-end justify-between p-7">
-                <div>
-                  <p class="text-sm font-semibold text-muted">Marketplace</p>
-                  <h3 class="mt-2 text-3xl font-extrabold tracking-[-0.04em]">HexCheats</h3>
-                </div>
-                <span class="magnetic rounded-full bg-paper px-4 py-2 text-sm font-semibold">
-                  Open
+        <article class="project-card reveal shine rounded-[2rem] border border-line bg-paper p-4 md:col-span-7">
+          <a href="https://hexcheats.lol" target="_blank" rel="noreferrer" class="block">
+            <div class="relative aspect-video overflow-hidden rounded-[1.5rem] border border-line bg-soft">
+              <div class="grid-bg absolute inset-0 opacity-75"></div>
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(24,24,27,0.14),transparent_35%)]"></div>
+
+              <div class="absolute inset-0 flex items-center justify-center p-10">
+                <img src="./hexcheats.png" alt="hexcheats logo" class="logo-img max-h-28 max-w-[70%] object-contain opacity-90" />
+              </div>
+
+              <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                <span class="rounded-full bg-paper/85 px-4 py-2 text-xs font-black lowercase backdrop-blur">
+                  marketplace
+                </span>
+                <span class="magnetic rounded-full bg-ink px-4 py-2 text-xs font-black lowercase text-paper">
+                  open
                 </span>
               </div>
             </div>
 
             <div class="mt-5 grid gap-5 md:grid-cols-12">
               <div class="md:col-span-4">
-                <p class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">2026</p>
-                <p class="mt-2 text-sm text-muted">Owner / Storefront</p>
-                <p class="mt-1 text-sm text-muted">Commerce, UX, Community</p>
+                <p class="text-xs font-black uppercase tracking-[0.25em] text-muted">2026</p>
+                <p class="mt-2 text-sm lowercase text-muted">owner / storefront</p>
+                <p class="mt-1 text-sm lowercase text-muted">commerce, ux, community</p>
               </div>
+
               <div class="md:col-span-8">
-                <h3 class="text-2xl font-bold tracking-[-0.03em]">Digital product marketplace with a simple buying flow.</h3>
-                <p class="mt-3 leading-7 text-muted">
-                  HexCheats is built around quick product access, clear browsing, and a community-first support loop.
-                  The goal is simple: make the store easy to understand and fast to use.
+                <h3 class="text-2xl font-black tracking-[-0.04em]">
+                  hexcheats
+                </h3>
+                <p class="mt-3 leading-7 lowercase text-muted">
+                  a digital marketplace built around fast access, clean browsing, and simple product flow.
+                  i keep the site direct because people don’t wanna solve a puzzle just to buy something.
                 </p>
               </div>
             </div>
           </a>
         </article>
 
-        <article class="group md:col-span-5">
-          <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="project-link block">
-            <div class="project-shot aspect-[4/3] overflow-hidden rounded-[2rem] border border-line">
-              <div class="flex h-full flex-col justify-between p-7">
-                <span class="w-fit rounded-full bg-paper px-4 py-2 text-sm font-semibold">Brand</span>
-                <div>
-                  <p class="text-sm font-semibold text-muted">Development</p>
-                  <h3 class="mt-2 text-3xl font-extrabold tracking-[-0.04em]">ClarityDevs</h3>
-                </div>
-              </div>
-            </div>
+        <article class="project-card reveal shine rounded-[2rem] border border-line bg-paper p-4 md:col-span-5" style="transition-delay: 100ms">
+          <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="block">
+            <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-line bg-soft">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(24,24,27,0.16),transparent_35%)]"></div>
+              <div class="grid-bg absolute inset-0 opacity-60"></div>
 
-            <div class="mt-5">
-              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
-                <span>2026</span>
-                <span>Founder / Developer</span>
-                <span>Web, Tools, Branding</span>
+              <div class="absolute inset-0 flex items-center justify-center p-10">
+                <img src="./clarity.png" alt="clarity logo" class="logo-img max-h-28 max-w-[72%] object-contain opacity-90" />
               </div>
-              <h3 class="text-2xl font-bold tracking-[-0.03em]">A clean dev brand for tools, scripts, and digital systems.</h3>
-              <p class="mt-3 leading-7 text-muted">
-                Clarity is the main brand behind my development work.
-                It keeps the focus on sharp interfaces, useful automation, and projects that do not feel overbuilt.
-              </p>
-            </div>
-          </a>
-        </article>
 
-        <article class="group md:col-span-5">
-          <a href="#contact" class="project-link block">
-            <div class="project-shot aspect-[4/3] overflow-hidden rounded-[2rem] border border-line">
-              <div class="flex h-full flex-col justify-between p-7">
-                <span class="w-fit rounded-full bg-paper px-4 py-2 text-sm font-semibold">Systems</span>
-                <div>
-                  <p class="text-sm font-semibold text-muted">Game Utilities</p>
-                  <h3 class="mt-2 text-3xl font-extrabold tracking-[-0.04em]">Roblox Tooling</h3>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-5">
-              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
-                <span>2025 — 2026</span>
-                <span>Lua Developer</span>
-                <span>Lua, UI, Automation</span>
-              </div>
-              <h3 class="text-2xl font-bold tracking-[-0.03em]">Custom utility scripts with clean UI systems.</h3>
-              <p class="mt-3 leading-7 text-muted">
-                Built mobile-friendly script interfaces, toggles, movement tools, overlays, and automation flows.
-                The work focuses on clean wiring, stable controls, and interfaces that do not feel random.
-              </p>
-            </div>
-          </a>
-        </article>
-
-        <article class="group md:col-span-7">
-          <a href="#contact" class="project-link block">
-            <div class="project-shot thin-noise aspect-video overflow-hidden rounded-[2rem] border border-line">
-              <div class="flex h-full items-end justify-between p-7">
-                <div>
-                  <p class="text-sm font-semibold text-muted">Operations</p>
-                  <h3 class="mt-2 text-3xl font-extrabold tracking-[-0.04em]">Digital Store Systems</h3>
-                </div>
-                <span class="magnetic rounded-full bg-paper px-4 py-2 text-sm font-semibold">
-                  Details
+              <div class="absolute bottom-5 left-5">
+                <span class="rounded-full bg-paper/85 px-4 py-2 text-xs font-black lowercase backdrop-blur">
+                  dev brand
                 </span>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-sm lowercase text-muted">
+                <span>2026</span>
+                <span>founder / developer</span>
+                <span>web, tools, branding</span>
+              </div>
+
+              <h3 class="text-2xl font-black tracking-[-0.04em]">
+                claritydevs
+              </h3>
+              <p class="mt-3 leading-7 lowercase text-muted">
+                my main dev brand for clean tools, scripts, and online systems.
+                it’s the more polished side of my work — simple look, useful features, no extra noise.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card reveal shine rounded-[2rem] border border-line bg-paper p-4 md:col-span-5">
+          <a href="#contact" class="block">
+            <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-line bg-soft">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,0.12),transparent_35%)]"></div>
+              <div class="absolute inset-8 rounded-[2rem] border border-ink/10"></div>
+              <div class="absolute inset-14 rounded-[2rem] border border-ink/10"></div>
+
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-10 text-center">
+                <p class="text-xs font-black uppercase tracking-[0.3em] text-muted">lua / ui / tools</p>
+                <h3 class="mt-4 text-4xl font-black tracking-[-0.08em]">roblox systems</h3>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-sm lowercase text-muted">
+                <span>2025 — 2026</span>
+                <span>lua developer</span>
+                <span>ui, movement, automation</span>
+              </div>
+
+              <h3 class="text-2xl font-black tracking-[-0.04em]">
+                custom utility scripts
+              </h3>
+              <p class="mt-3 leading-7 lowercase text-muted">
+                built custom ui systems, toggles, movement tools, overlays, and automation flows.
+                the goal is always the same: make it work clean and stop clean when toggled off.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card reveal shine rounded-[2rem] border border-line bg-paper p-4 md:col-span-7" style="transition-delay: 100ms">
+          <a href="#contact" class="block">
+            <div class="relative aspect-video overflow-hidden rounded-[1.5rem] border border-line bg-soft">
+              <div class="grid-bg absolute inset-0 opacity-70"></div>
+              <div class="absolute left-8 top-8 h-28 w-28 rounded-full border border-ink/10 bg-paper/70 backdrop-blur blob"></div>
+              <div class="absolute bottom-8 right-8 h-40 w-40 rounded-full border border-ink/10 bg-paper/60 backdrop-blur blob" style="animation-delay: 1s"></div>
+
+              <div class="absolute inset-0 flex items-end p-7">
+                <div>
+                  <p class="text-xs font-black uppercase tracking-[0.3em] text-muted">ops / support / product</p>
+                  <h3 class="mt-3 text-5xl font-black tracking-[-0.08em]">store systems</h3>
+                </div>
               </div>
             </div>
 
             <div class="mt-5 grid gap-5 md:grid-cols-12">
               <div class="md:col-span-4">
-                <p class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">Ongoing</p>
-                <p class="mt-2 text-sm text-muted">Owner / Operator</p>
-                <p class="mt-1 text-sm text-muted">Stores, Discord, Support</p>
+                <p class="text-xs font-black uppercase tracking-[0.25em] text-muted">ongoing</p>
+                <p class="mt-2 text-sm lowercase text-muted">owner / operator</p>
+                <p class="mt-1 text-sm lowercase text-muted">discord, checkout, support</p>
               </div>
+
               <div class="md:col-span-8">
-                <h3 class="text-2xl font-bold tracking-[-0.03em]">Storefronts, community, and support in one flow.</h3>
-                <p class="mt-3 leading-7 text-muted">
-                  I care about the boring parts too: product structure, checkout clarity, user trust, support channels, and simple updates.
-                  A good product is not only what it sells, it is how easy it feels to use.
+                <h3 class="text-2xl font-black tracking-[-0.04em]">
+                  the boring parts matter too
+                </h3>
+                <p class="mt-3 leading-7 lowercase text-muted">
+                  product pages, updates, support, community, checkout flow, and the whole “does this feel trusted?” part.
+                  that’s the stuff that makes a project feel real instead of pasted together.
                 </p>
               </div>
             </div>
@@ -264,92 +551,93 @@
       </div>
     </section>
 
-    <section id="stack" class="mx-auto max-w-7xl px-5 py-24 md:px-8">
-      <div class="grid gap-12 md:grid-cols-12">
-        <div class="md:col-span-5">
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-            Stack
+    <section id="stack" class="relative border-y border-line bg-soft/40">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-24 md:grid-cols-12 md:px-8">
+        <div class="reveal md:col-span-5">
+          <p class="mb-4 text-xs font-black uppercase tracking-[0.32em] text-muted">
+            stack
           </p>
-          <h2 class="text-4xl font-extrabold tracking-[-0.05em] md:text-6xl">
-            Tools I use when the project needs to be clean and practical.
+          <h2 class="text-4xl font-black tracking-[-0.06em] md:text-6xl">
+            tools i actually use.
           </h2>
         </div>
 
         <div class="md:col-span-7">
           <div class="grid gap-3 sm:grid-cols-2">
-            <div class="rounded-[1.5rem] border border-line p-6">
-              <h3 class="font-bold">Frontend</h3>
-              <p class="mt-3 leading-7 text-muted">HTML, CSS, Tailwind, JavaScript, responsive UI, clean layouts.</p>
+            <div class="project-card reveal rounded-[1.5rem] border border-line bg-paper p-6">
+              <h3 class="font-black lowercase">frontend</h3>
+              <p class="mt-3 leading-7 lowercase text-muted">html, css, tailwind, js, responsive layouts, clean micro-interactions.</p>
             </div>
 
-            <div class="rounded-[1.5rem] border border-line p-6">
-              <h3 class="font-bold">Backend</h3>
-              <p class="mt-3 leading-7 text-muted">APIs, auth flows, databases, server logic, automation systems.</p>
+            <div class="project-card reveal rounded-[1.5rem] border border-line bg-paper p-6" style="transition-delay: 80ms">
+              <h3 class="font-black lowercase">backend</h3>
+              <p class="mt-3 leading-7 lowercase text-muted">apis, auth flows, storage, server logic, automation, and dashboards.</p>
             </div>
 
-            <div class="rounded-[1.5rem] border border-line p-6">
-              <h3 class="font-bold">Commerce</h3>
-              <p class="mt-3 leading-7 text-muted">Digital stores, product pages, checkout flow, support structure.</p>
+            <div class="project-card reveal rounded-[1.5rem] border border-line bg-paper p-6" style="transition-delay: 160ms">
+              <h3 class="font-black lowercase">commerce</h3>
+              <p class="mt-3 leading-7 lowercase text-muted">digital stores, product pages, checkout clarity, and support setup.</p>
             </div>
 
-            <div class="rounded-[1.5rem] border border-line p-6">
-              <h3 class="font-bold">Community</h3>
-              <p class="mt-3 leading-7 text-muted">Discord setup, support channels, update systems, user flow.</p>
+            <div class="project-card reveal rounded-[1.5rem] border border-line bg-paper p-6" style="transition-delay: 240ms">
+              <h3 class="font-black lowercase">community</h3>
+              <p class="mt-3 leading-7 lowercase text-muted">discord systems, update channels, support flow, and user trust.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="border-y border-line">
-      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-24 md:grid-cols-12 md:px-8">
-        <div class="md:col-span-4">
-          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-            About
+    <section id="about" class="mx-auto max-w-7xl px-5 py-24 md:px-8">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="reveal md:col-span-4">
+          <p class="text-xs font-black uppercase tracking-[0.32em] text-muted">
+            about
           </p>
         </div>
 
-        <div class="md:col-span-8">
-          <p class="max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.04em] md:text-5xl">
-            I like building things that look simple on the outside, but actually have the details handled properly.
+        <div class="reveal md:col-span-8">
+          <p class="max-w-4xl text-3xl font-black leading-tight tracking-[-0.05em] md:text-5xl">
+            i like stuff that feels clean, fast, and not overdone. simple doesn’t mean lazy.
           </p>
 
-          <div class="mt-10 grid gap-8 text-base leading-8 text-muted md:grid-cols-2">
+          <div class="mt-10 grid gap-8 text-base leading-8 lowercase text-muted md:grid-cols-2">
             <p>
-              My work sits between development, business, and product design. I care about the full flow:
-              the idea, the interface, the store, the community, and the little details users notice.
+              i work on stores, scripts, dev tools, and online brands. i care about how things look, but i care more about whether people can actually use them without getting annoyed.
             </p>
+
             <p>
-              I do not chase loud visuals or overbuilt features. I would rather build something clean,
-              useful, and easy to maintain than something that only looks good for five seconds.
+              most projects fail because they feel messy. my whole thing is making the flow cleaner — the ui, the support, the product structure, and the small details.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="mx-auto max-w-7xl px-5 py-24 md:px-8">
-      <div class="grid gap-10 md:grid-cols-12 md:items-end">
-        <div class="md:col-span-8">
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-            Contact
+    <section id="contact" class="relative overflow-hidden border-t border-line">
+      <div class="aurora opacity-40"></div>
+
+      <div class="relative z-10 mx-auto grid max-w-7xl gap-10 px-5 py-24 md:grid-cols-12 md:items-end md:px-8">
+        <div class="reveal md:col-span-8">
+          <p class="mb-4 text-xs font-black uppercase tracking-[0.32em] text-muted">
+            contact
           </p>
-          <h2 class="max-w-4xl text-5xl font-extrabold leading-none tracking-[-0.07em] md:text-7xl">
-            Want to build something clean?
+          <h2 class="max-w-4xl text-5xl font-black leading-none tracking-[-0.08em] md:text-7xl">
+            got something to build?
           </h2>
         </div>
 
-        <div class="md:col-span-4">
-          <p class="mb-6 leading-8 text-muted">
-            Reach me through my public project links. Keep it direct, I usually do the same.
+        <div class="reveal md:col-span-4" style="transition-delay: 120ms">
+          <p class="mb-6 lowercase leading-8 text-muted">
+            send it straight. i like clean ideas, clear goals, and projects that don’t waste time.
           </p>
 
           <div class="flex flex-wrap gap-3">
-            <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper">
-              ClarityDevs
+            <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full bg-ink px-5 py-3 text-sm font-black lowercase text-paper">
+              claritydevs
             </a>
-            <a href="https://hexcheats.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full border border-line px-5 py-3 text-sm font-semibold hover:border-ink">
-              HexCheats
+            <a href="https://hexcheats.lol" target="_blank" rel="noreferrer" class="magnetic rounded-full border border-line bg-paper px-5 py-3 text-sm font-black lowercase hover:border-ink">
+              hexcheats
             </a>
           </div>
         </div>
@@ -358,21 +646,62 @@
   </main>
 
   <footer class="border-t border-line px-5 py-8 md:px-8">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-muted md:flex-row md:items-center md:justify-between">
-      <p>© <span id="year"></span> Xohus. Built simple.</p>
-      <p>Full-stack developer / founder / digital operator.</p>
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm lowercase text-muted md:flex-row md:items-center md:justify-between">
+      <p>© <span id="year"></span> xohus. built clean.</p>
+      <p>full-stack dev / founder / digital operator.</p>
     </div>
   </footer>
 
   <script>
+    const root = document.documentElement;
+    const cursorDot = document.getElementById("cursorDot");
+    const cursorRing = document.getElementById("cursorRing");
+    const progress = document.getElementById("scrollProgress");
     const magneticItems = document.querySelectorAll(".magnetic");
+    const projectCards = document.querySelectorAll(".project-card");
+    const reveals = document.querySelectorAll(".reveal");
+
+    window.addEventListener("pointermove", (e) => {
+      root.style.setProperty("--x", `${e.clientX}px`);
+      root.style.setProperty("--y", `${e.clientY}px`);
+
+      cursorDot.style.opacity = "1";
+      cursorRing.style.opacity = "1";
+
+      cursorDot.animate(
+        { transform: `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)` },
+        { duration: 120, fill: "forwards", easing: "ease-out" }
+      );
+
+      cursorRing.animate(
+        { transform: `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)` },
+        { duration: 420, fill: "forwards", easing: "ease-out" }
+      );
+    });
+
+    document.querySelectorAll("a, button, .project-card").forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        cursorDot.style.width = "28px";
+        cursorDot.style.height = "28px";
+        cursorRing.style.width = "70px";
+        cursorRing.style.height = "70px";
+        cursorRing.style.borderColor = "rgba(24,24,27,0.42)";
+      });
+
+      item.addEventListener("mouseleave", () => {
+        cursorDot.style.width = "14px";
+        cursorDot.style.height = "14px";
+        cursorRing.style.width = "44px";
+        cursorRing.style.height = "44px";
+        cursorRing.style.borderColor = "rgba(24,24,27,0.28)";
+      });
+    });
 
     magneticItems.forEach((item) => {
       item.addEventListener("mousemove", (event) => {
         const rect = item.getBoundingClientRect();
         const x = event.clientX - rect.left - rect.width / 2;
         const y = event.clientY - rect.top - rect.height / 2;
-
         item.style.transform = `translate(${x * 0.13}px, ${y * 0.13}px)`;
       });
 
@@ -381,12 +710,34 @@
       });
     });
 
-    const projectLinks = document.querySelectorAll(".project-link");
+    projectCards.forEach((card) => {
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const rotateX = ((y / rect.height) - 0.5) * -5;
+        const rotateY = ((x / rect.width) - 0.5) * 5;
 
-    projectLinks.forEach((link) => {
-      link.addEventListener("mouseenter", () => {
-        link.style.cursor = "pointer";
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
       });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach((el) => observer.observe(el));
+
+    window.addEventListener("scroll", () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / height) * 100;
+      progress.style.width = `${scrolled}%`;
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
