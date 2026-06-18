@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>xohus — digital project operator</title>
-  <meta name="description" content="Portfolio of xohus — digital project operator, founder of Clarity, owner of Hexcheats, and builder of digital brands." />
+  <title>Xohus — Developer Portfolio</title>
+  <meta name="description" content="Xohus — developer, founder, and builder of web tools, Discord systems, Roblox utilities, payment platforms, and automation tools." />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -34,14 +34,12 @@
     }
 
     :root {
-      --bg: #030303;
-      --panel: #101010;
-      --text: #f4f4f4;
-      --muted: #a3a3a3;
-      --line: rgba(255, 255, 255, 0.14);
-      --accent: #d8d8d8;
-      --x: 50%;
-      --y: 50%;
+      --bg: #050505;
+      --panel: rgba(18, 18, 18, 0.74);
+      --line: rgba(255, 255, 255, 0.12);
+      --muted: #a1a1aa;
+      --mx: 50%;
+      --my: 50%;
     }
 
     * {
@@ -53,30 +51,35 @@
       margin: 0;
       min-height: 100%;
       background: var(--bg);
-      color: var(--text);
+      color: #f5f5f5;
       font-family: Roboto, system-ui, sans-serif;
       overflow-x: hidden;
     }
 
+    body {
+      background:
+        radial-gradient(900px circle at 18% 8%, rgba(255, 255, 255, 0.075), transparent 34%),
+        radial-gradient(720px circle at 80% 18%, rgba(255, 255, 255, 0.045), transparent 32%),
+        linear-gradient(180deg, #050505 0%, #090909 48%, #040404 100%);
+    }
+
     ::selection {
-      background: var(--accent);
+      background: #f5f5f5;
       color: #050505;
     }
 
-    body {
-      background:
-        radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.08), transparent 28%),
-        linear-gradient(135deg, #030303 0%, #111 52%, #050505 100%);
+    .font-display {
+      font-family: Inter, system-ui, sans-serif;
     }
 
     .noise {
       pointer-events: none;
       position: fixed;
       inset: 0;
-      z-index: 90;
-      opacity: 0.055;
+      z-index: 60;
+      opacity: 0.045;
       background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0);
-      background-size: 22px 22px;
+      background-size: 24px 24px;
       mix-blend-mode: overlay;
     }
 
@@ -84,146 +87,48 @@
       position: fixed;
       top: 0;
       left: 0;
+      z-index: 80;
       height: 2px;
       width: 0%;
-      z-index: 120;
-      background: linear-gradient(90deg, #fff, #6d6d6d);
-      box-shadow: 0 0 22px rgba(255, 255, 255, 0.24);
-    }
-
-    .grid-bg {
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-      background-size: 54px 54px;
-      mask-image: radial-gradient(circle at center, black, transparent 78%);
-      animation: gridDrift 16s linear infinite;
-    }
-
-    @keyframes gridDrift {
-      from {
-        background-position: 0 0, 0 0;
-      }
-      to {
-        background-position: 54px 54px, 54px 54px;
-      }
+      background: linear-gradient(90deg, #ffffff, #707070);
     }
 
     .spotlight {
-      background:
-        radial-gradient(820px circle at var(--x) var(--y), rgba(255, 255, 255, 0.075), transparent 48%);
+      background: radial-gradient(720px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.07), transparent 46%);
     }
 
-    .glass {
-      background: rgba(18, 18, 18, 0.68);
-      border: 1px solid var(--line);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
-      backdrop-filter: blur(18px);
+    .grid-field {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at center, black, transparent 74%);
+      animation: gridShift 18s linear infinite;
     }
 
-    .card {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02)),
-        rgba(18, 18, 18, 0.7);
-      border: 1px solid var(--line);
-      box-shadow: 0 24px 70px rgba(0,0,0,0.22);
-      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
-      will-change: transform;
-    }
-
-    .card:hover {
-      border-color: rgba(255, 255, 255, 0.34);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02)),
-        rgba(20, 20, 20, 0.78);
-    }
-
-    .magnetic {
-      transition: transform 160ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
-      will-change: transform;
-    }
-
-    .shine {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .shine::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.18) 45%, transparent 63%);
-      transform: translateX(-120%);
-      transition: transform 700ms ease;
-      pointer-events: none;
-    }
-
-    .shine:hover::before {
-      transform: translateX(120%);
-    }
-
-    .beam-border {
-      position: relative;
-      isolation: isolate;
-    }
-
-    .beam-border::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      z-index: -1;
-      background: conic-gradient(from var(--beam-angle, 0deg), transparent 0deg, rgba(255,255,255,0.55) 36deg, transparent 86deg);
-      opacity: 0.55;
-      animation: beamSpin 7s linear infinite;
-    }
-
-    @keyframes beamSpin {
+    @keyframes gridShift {
       to {
-        --beam-angle: 360deg;
+        background-position: 64px 64px, 64px 64px;
       }
     }
 
-    .soft-mask {
-      mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
-    }
-
-    .shader-plane {
+    .aurora {
       position: absolute;
-      inset: auto -12% -26% -12%;
-      height: 42vh;
-      background:
-        repeating-linear-gradient(108deg, rgba(255,255,255,0.055) 0 1px, transparent 1px 24px),
-        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.10), transparent 58%);
-      transform: skewY(-6deg);
-      opacity: 0.7;
-      filter: blur(0.2px);
+      inset: -20% -10% auto -10%;
+      height: 52vh;
       pointer-events: none;
-    }
-
-    .reveal-word {
-      display: inline-block;
-      background: linear-gradient(100deg, #fff 0%, #8c8c8c 44%, #fff 82%);
-      background-size: 220% 100%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: textSheen 8s ease-in-out infinite;
-    }
-
-    @keyframes textSheen {
-      0%, 100% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.09), transparent 30%),
+        radial-gradient(circle at 64% 10%, rgba(255,255,255,0.06), transparent 26%);
+      filter: blur(60px);
+      opacity: 0.85;
     }
 
     .reveal {
       opacity: 0;
-      filter: blur(12px);
-      transform: translateY(28px) scale(0.985);
-      transition: opacity 850ms ease, filter 850ms ease, transform 850ms ease;
+      filter: blur(14px);
+      transform: translateY(24px);
+      transition: opacity 800ms ease, filter 800ms ease, transform 800ms ease;
     }
 
     .reveal.show {
@@ -232,256 +137,142 @@
       transform: translateY(0);
     }
 
-    .glow {
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.09);
-      filter: blur(90px);
-      opacity: 0.62;
-      animation: drift 9s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    @keyframes drift {
-      0% {
-        transform: translate(-20px, -10px) scale(1);
-      }
-      100% {
-        transform: translate(40px, 30px) scale(1.12);
-      }
-    }
-
-    .font-display {
-      font-family: Inter, system-ui, sans-serif;
-    }
-
-    .hero-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(0.95) contrast(1.05);
-    }
-
-    .hero-media-grid {
-      display: grid;
-      grid-template-columns: 1fr 0.76fr;
-      grid-template-rows: 280px 180px;
-      gap: 1rem;
-    }
-
-    .hero-media-grid .image-cut:first-child {
-      grid-row: span 2;
-    }
-
-    @media (max-width: 768px) {
-      .hero-media-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: 360px 160px 160px;
-      }
-    }
-
-    .logo-img {
-      max-width: 72%;
-      max-height: 110px;
-      object-fit: contain;
-      filter: drop-shadow(0 18px 36px rgba(0,0,0,0.28));
-      transition: transform 220ms ease, opacity 220ms ease;
-    }
-
-    .card:hover .logo-img {
-      transform: scale(1.055);
-      opacity: 1;
-    }
-
-    .ticker {
-      display: flex;
-      overflow: hidden;
-      user-select: none;
-      gap: 1rem;
-    }
-
-    .ticker-track {
-      display: flex;
-      min-width: 100%;
-      flex-shrink: 0;
-      justify-content: space-around;
-      gap: 1rem;
-      animation: ticker 24s linear infinite;
-    }
-
-    @keyframes ticker {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(calc(-100% - 1rem));
-      }
-    }
-
-    .particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      box-shadow: 0 0 18px rgba(255, 255, 255, 0.28);
-      animation: float 8s ease-in-out infinite;
-    }
-
-    .project-line {
-      position: relative;
-      border-left: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .project-line::before {
-      display: none;
-    }
-
-    .skill-token {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.035);
-      padding: 0.55rem 0.7rem;
-      font-size: 0.75rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #d4d4d4;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .skill-token:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,0.34);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .edge-panel {
+    .panel {
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid var(--line);
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.015) 42%, rgba(255,255,255,0.055)),
-        rgba(8,8,8,0.78);
-      box-shadow: 0 34px 90px rgba(0,0,0,0.36);
+        linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018) 44%, rgba(255,255,255,0.045)),
+        var(--panel);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.34);
       backdrop-filter: blur(18px);
-      transition: transform 220ms ease, border-color 220ms ease;
     }
 
-    .edge-panel:not(.beam-border)::before {
+    .panel::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.13), transparent 44%);
+      background: radial-gradient(520px circle at var(--px, 50%) var(--py, 50%), rgba(255,255,255,0.12), transparent 46%);
       opacity: 0;
       transition: opacity 180ms ease;
       pointer-events: none;
     }
 
-    .edge-panel::after {
+    .panel:hover::before {
+      opacity: 1;
+    }
+
+    .beam {
+      isolation: isolate;
+    }
+
+    .beam::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent),
-        repeating-linear-gradient(0deg, transparent 0 8px, rgba(255,255,255,0.025) 8px 9px);
+      inset: -1px;
+      z-index: -1;
+      background: conic-gradient(from var(--beam-angle), transparent 0deg, rgba(255,255,255,0.42) 34deg, transparent 86deg);
       opacity: 0;
-      transition: opacity 220ms ease;
-      pointer-events: none;
+      transition: opacity 180ms ease;
+      animation: beamSpin 7s linear infinite;
     }
 
-    .edge-panel:hover::after {
-      opacity: 1;
+    .beam:hover::after {
+      opacity: 0.9;
     }
 
-    .edge-panel:not(.beam-border):hover::before {
-      opacity: 1;
+    @keyframes beamSpin {
+      to {
+        --beam-angle: 360deg;
+      }
     }
 
-    .image-cut {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: #090909;
-    }
-
-    .image-cut img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(1) contrast(1.08);
-      transform: scale(1.02);
-      transition: transform 550ms ease, filter 550ms ease;
-    }
-
-    .image-cut:hover img {
-      transform: scale(1.07);
-      filter: grayscale(0.45) contrast(1.08);
-    }
-
-    .logo-mark {
-      width: min(72%, 260px);
-      max-height: 150px;
-      object-fit: contain;
-      filter: grayscale(1) drop-shadow(0 24px 44px rgba(0,0,0,0.42));
-    }
-
-    .scanline {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.10) 50%, transparent 100%);
-      height: 28%;
-      animation: scanMove 5.5s ease-in-out infinite;
-      pointer-events: none;
-      opacity: 0.55;
-    }
-
-    .shimmer-link {
+    .shimmer {
       position: relative;
       overflow: hidden;
     }
 
-    .shimmer-link::after {
+    .shimmer::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.28) 45%, transparent 65%);
+      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.26) 45%, transparent 66%);
       transform: translateX(-140%);
-      transition: transform 700ms ease;
+      transition: transform 720ms ease;
       pointer-events: none;
     }
 
-    .shimmer-link:hover::after {
+    .shimmer:hover::after {
       transform: translateX(140%);
     }
 
-    .section-rule {
+    .media-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #0b0b0b;
+    }
+
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.07);
+      transform: scale(1.015);
+      transition: transform 700ms ease, filter 700ms ease;
+    }
+
+    .media-frame:hover img {
+      transform: scale(1.055);
+      filter: grayscale(0.25) contrast(1.06);
+    }
+
+    .logo-mark {
+      width: min(68%, 280px);
+      max-height: 150px;
+      object-fit: contain;
+      filter: grayscale(1) drop-shadow(0 24px 40px rgba(0,0,0,0.45));
+    }
+
+    .section-line {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
     }
 
-    @keyframes scanMove {
-      0%, 100% {
-        transform: translateY(-120%);
-      }
-      55% {
-        transform: translateY(430%);
+    .marquee {
+      display: flex;
+      gap: 1rem;
+      overflow: hidden;
+      user-select: none;
+      mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      min-width: 100%;
+      flex-shrink: 0;
+      justify-content: space-around;
+      gap: 1rem;
+      animation: marqueeMove 26s linear infinite;
+    }
+
+    @keyframes marqueeMove {
+      to {
+        transform: translateX(calc(-100% - 1rem));
       }
     }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-        opacity: 0.2;
-      }
-      50% {
-        transform: translateY(-24px);
-        opacity: 0.9;
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
       }
     }
-
   </style>
 </head>
 
@@ -489,23 +280,18 @@
   <div class="scroll-progress" id="scrollProgress"></div>
   <div class="noise"></div>
 
-  <header class="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/70 backdrop-blur-2xl">
+  <header class="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/55 backdrop-blur-2xl">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-      <a href="#" class="magnetic flex items-center gap-3">
-        <span class="grid h-9 w-9 place-items-center bg-white text-xs font-black text-black shadow-[8px_8px_0_rgba(255,255,255,0.12)]">
-          xo
-        </span>
-        <span class="font-display text-sm font-black text-white">xohus</span>
-      </a>
+      <a href="#" class="font-display text-sm font-black tracking-tight text-white">Xohus</a>
 
-      <div class="hidden items-center gap-8 text-sm font-semibold text-neutral-400 md:flex">
-        <a href="#work" class="magnetic transition hover:text-white">Work</a>
-        <a href="#ecosystem" class="magnetic transition hover:text-white">Projects</a>
-        <a href="#about" class="magnetic transition hover:text-white">About</a>
-        <a href="#contact" class="magnetic transition hover:text-white">Contact</a>
+      <div class="hidden items-center gap-8 text-sm font-medium text-neutral-400 md:flex">
+        <a href="#about" class="transition hover:text-white">About</a>
+        <a href="#projects" class="transition hover:text-white">Projects</a>
+        <a href="#focus" class="transition hover:text-white">Focus</a>
+        <a href="#contact" class="transition hover:text-white">Contact</a>
       </div>
 
-      <a href="#contact" class="magnetic shimmer-link border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10">
+      <a href="#contact" class="shimmer border border-white/15 bg-white/5 px-4 py-2 text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/10">
         Contact
       </a>
     </nav>
@@ -513,414 +299,241 @@
 
   <main class="spotlight relative">
     <section class="relative min-h-screen overflow-hidden px-5 pt-32 md:px-8 md:pt-40">
-      <div class="grid-bg absolute inset-0 opacity-80"></div>
-      <div class="shader-plane"></div>
-      <div class="glow left-[-160px] top-[120px]"></div>
-      <div class="glow bottom-[-180px] right-[-160px]" style="animation-delay: 1.2s"></div>
-      <div id="particles" class="absolute inset-0 overflow-hidden"></div>
+      <div class="aurora"></div>
+      <div class="grid-field absolute inset-0 opacity-80"></div>
 
       <div class="relative z-10 mx-auto max-w-7xl">
-        <div class="grid items-center gap-16 md:grid-cols-12">
-          <div class="reveal md:col-span-7">
-            <p class="mb-6 text-xs font-black uppercase tracking-[0.34em] text-neutral-400">
-              Xohus / online projects
+        <div class="grid gap-12 md:grid-cols-12 md:items-end">
+          <div class="reveal md:col-span-8">
+            <p class="mb-6 text-xs font-black uppercase tracking-[0.34em] text-neutral-500">
+              Developer / founder / builder
             </p>
 
-            <h1 class="font-display max-w-5xl text-[clamp(3.4rem,8vw,8.5rem)] font-black leading-[0.86] text-white">
-              I build under Xohus and keep my projects moving.
+            <h1 class="font-display text-[clamp(5rem,15vw,14rem)] font-black leading-[0.78] tracking-[-0.08em] text-white">
+              Xohus
             </h1>
 
-            <p class="mt-9 max-w-2xl text-base leading-8 text-neutral-400 md:text-lg">
-              Xohus is the name I use publicly for my online work. Most of it sits around Clarity, Hexcheats, Roblox scripting, Discord bots, AI ideas, and clean digital brands that do not look thrown together.
+            <p class="mt-8 max-w-3xl text-lg leading-9 text-neutral-300 md:text-xl">
+              Developer, founder, and builder of web tools, Discord systems, Roblox utilities, payment platforms, and automation tools.
             </p>
 
             <div class="mt-10 flex flex-wrap gap-3">
-              <a href="#work" class="magnetic shimmer-link bg-white px-5 py-3 text-sm font-black text-black shadow-[10px_10px_0_rgba(255,255,255,0.12)] transition hover:bg-neutral-200">
-                View selected work
+              <a href="#projects" class="shimmer bg-white px-5 py-3 text-sm font-black text-black shadow-[10px_10px_0_rgba(255,255,255,0.12)] transition hover:bg-neutral-200">
+                View Projects
               </a>
-
-              <button id="copyDiscordTop" class="magnetic shimmer-link border border-white/15 bg-white/5 px-5 py-3 text-sm font-black text-white transition hover:border-white/45 hover:bg-white/10">
-                Discord: kp9b
-              </button>
-            </div>
-
-            <div class="mt-14 grid max-w-2xl grid-cols-3 border-y border-white/10 text-neutral-400">
-              <div class="py-5 pr-5">
-                <p class="font-display text-3xl font-black text-white">05+</p>
-                <p class="mt-1 text-xs uppercase tracking-[0.22em]">brands / ideas</p>
-              </div>
-              <div class="border-x border-white/10 px-5 py-5">
-                <p class="font-display text-3xl font-black text-white">bots</p>
-                <p class="mt-1 text-xs uppercase tracking-[0.22em]">Discord / AI</p>
-              </div>
-              <div class="py-5 pl-5">
-                <p class="font-display text-3xl font-black text-white">RBLX</p>
-                <p class="mt-1 text-xs uppercase tracking-[0.22em]">scripting</p>
-              </div>
+              <a href="#contact" class="shimmer border border-white/15 bg-white/5 px-5 py-3 text-sm font-black text-white transition hover:border-white/40 hover:bg-white/10">
+                Contact
+              </a>
             </div>
           </div>
 
-          <div class="reveal md:col-span-5" style="transition-delay: 120ms">
-            <div class="hero-media-grid">
-              <div class="image-cut beam-border">
-                <img src="./me.png" alt="xohus portrait" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-              </div>
-
-              <div class="edge-panel grid place-items-center p-6">
-                <img src="./clarity.png" alt="Clarity logo" class="logo-mark" />
-              </div>
-
-              <div class="edge-panel grid place-items-center p-6">
-                <img src="./hexcheats.png" alt="Hexcheats logo" class="logo-mark" />
+          <div class="reveal md:col-span-4" style="transition-delay: 120ms">
+            <div class="panel beam p-3">
+              <div class="media-frame aspect-[4/5]">
+                <img src="./me.png" alt="Xohus" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="reveal mt-16 grid gap-4 md:grid-cols-12" style="transition-delay: 220ms">
-          <div class="edge-panel p-5 md:col-span-4">
-            <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Focus</p>
-            <p class="font-display mt-4 text-3xl font-black text-white">Cheats, scripts, bots, and digital brands.</p>
+        <div class="reveal mt-16 grid gap-4 md:grid-cols-3" style="transition-delay: 180ms">
+          <div class="panel p-6">
+            <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Main brand</p>
+            <p class="font-display mt-4 text-3xl font-black text-white">Clarity</p>
           </div>
-
-          <div class="edge-panel p-5 md:col-span-5">
-            <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Standard</p>
-            <p class="font-display mt-4 text-3xl font-black text-white">Clean presentation with real structure behind it.</p>
+          <div class="panel p-6">
+            <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Work type</p>
+            <p class="font-display mt-4 text-3xl font-black text-white">Tools and platforms</p>
           </div>
-
-          <div class="edge-panel p-5 md:col-span-3">
-            <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Name</p>
-            <p class="font-display mt-4 text-3xl font-black text-white">Xohus</p>
-            <p class="mt-3 text-sm leading-6 text-neutral-400">The name everything connects back to.</p>
-          </div>
-        </div>
-
-        <div class="reveal mt-10 overflow-hidden border border-white/10 bg-white/[0.03] py-4 backdrop-blur-xl" style="transition-delay: 300ms">
-          <div class="ticker">
-            <div class="ticker-track text-xs font-black uppercase tracking-[0.28em] text-neutral-500">
-              <span>Clarity</span>
-              <span>Hexcheats</span>
-              <span>Private projects</span>
-              <span>Storefronts</span>
-              <span>Brand work</span>
-              <span>Communities</span>
-              <span>Web pages</span>
-            </div>
-
-            <div class="ticker-track text-xs font-black uppercase tracking-[0.28em] text-neutral-500">
-              <span>Clarity</span>
-              <span>Hexcheats</span>
-              <span>Private projects</span>
-              <span>Storefronts</span>
-              <span>Brand work</span>
-              <span>Communities</span>
-              <span>Web pages</span>
-            </div>
+          <div class="panel p-6">
+            <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Style</p>
+            <p class="font-display mt-4 text-3xl font-black text-white">Clean, fast, useful</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-rule"></div>
+    <div class="section-line"></div>
 
-    <section id="work" class="relative mx-auto max-w-7xl px-5 py-24 md:px-8">
-      <div class="mb-12 grid gap-6 md:grid-cols-12">
-        <div class="reveal md:col-span-7">
-          <p class="mb-4 text-xs font-black uppercase tracking-[0.34em] text-neutral-400">
-            Selected work
-          </p>
-          <h2 class="text-4xl font-black tracking-[-0.06em] text-white md:text-6xl">
-            The projects I can talk about publicly.
+    <section id="about" class="relative px-5 py-24 md:px-8">
+      <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-12 md:items-start">
+        <div class="reveal md:col-span-4">
+          <p class="mb-4 text-xs font-black uppercase tracking-[0.34em] text-neutral-500">About</p>
+          <h2 class="font-display text-4xl font-black leading-tight text-white md:text-6xl">
+            Clean digital products with a real use case.
           </h2>
         </div>
 
-        <p class="reveal max-w-md leading-8 text-neutral-400 md:col-span-4 md:col-start-9" style="transition-delay: 120ms">
-          Some projects are active, some are older, and some are ideas I may come back to. This is the clean version of what matters.
-        </p>
-      </div>
-
-      <div class="grid gap-5 md:grid-cols-12">
-        <article class="edge-panel shine beam-border reveal p-4 md:col-span-7">
-          <a href="https://hexcheats.lol" target="_blank" rel="noreferrer" class="block">
-            <div class="relative aspect-video overflow-hidden border border-white/10 bg-[#090909]">
-              <div class="grid-bg absolute inset-0 opacity-80"></div>
-              <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.12),transparent_38%)]"></div>
-              <div class="scanline"></div>
-
-              <div class="absolute inset-0 flex items-center justify-center p-8">
-                <img src="./hexcheats.png" alt="hexcheats logo" class="logo-mark" />
-              </div>
-
-              <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between">
-                <span class="border border-white/10 bg-black/30 px-4 py-2 text-xs font-black text-neutral-300 backdrop-blur-xl">
-                  Marketplace
-                </span>
-                <span class="magnetic shimmer-link bg-white px-4 py-2 text-xs font-black text-black">
-                  Open
-                </span>
-              </div>
-            </div>
-
-            <div class="mt-5 grid gap-5 md:grid-cols-12">
-              <div class="md:col-span-4">
-                <p class="text-xs font-black uppercase tracking-[0.25em] text-neutral-500">2026</p>
-                <p class="mt-2 text-sm text-neutral-400">Owner / operator</p>
-                <p class="mt-1 text-sm text-neutral-400">Storefront, community, support</p>
-              </div>
-
-              <div class="md:col-span-8">
-                <h3 class="text-2xl font-black tracking-[-0.04em] text-white">Hexcheats</h3>
-                <p class="mt-3 leading-7 text-neutral-400">
-                  A digital marketplace built around clear product presentation, access flow, and community support. I manage the project direction, storefront experience, and operational layer.
-                </p>
-              </div>
-            </div>
-          </a>
-        </article>
-
-        <article class="edge-panel shine beam-border reveal p-4 md:col-span-5" style="transition-delay: 100ms">
-          <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="block">
-            <div class="relative aspect-[4/3] overflow-hidden border border-white/10 bg-[#090909]">
-              <div class="grid-bg absolute inset-0 opacity-70"></div>
-              <div class="absolute inset-0 bg-[radial-gradient(circle_at_35%_25%,rgba(255,255,255,0.12),transparent_40%)]"></div>
-              <div class="scanline"></div>
-
-              <div class="absolute inset-0 flex items-center justify-center p-8">
-                <img src="./clarity.png" alt="clarity logo" class="logo-mark" />
-              </div>
-
-              <div class="absolute bottom-5 left-5">
-                <span class="border border-white/10 bg-black/30 px-4 py-2 text-xs font-black text-neutral-300 backdrop-blur-xl">
-                  Cheats brand
-                </span>
-              </div>
-            </div>
-
-            <div class="mt-5">
-              <div class="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-neutral-400">
-                <span>2026</span>
-                <span>Founder</span>
-                <span>Cheats, branding, web work</span>
-              </div>
-
-              <h3 class="text-2xl font-black tracking-[-0.04em] text-white">Clarity</h3>
-              <p class="mt-3 leading-7 text-neutral-400">
-                Clarity is my current main brand after Lazy Devs. It is where most of my scripting, tools, Roblox-related work, and bot ideas now sit.
-              </p>
-            </div>
-          </a>
-        </article>
-      </div>
-
-      <div class="reveal mt-5 grid gap-5 md:grid-cols-12" style="transition-delay: 180ms">
-        <div class="image-cut h-[420px] md:col-span-4">
-          <img src="./me.png" alt="xohus portrait" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-        </div>
-
-        <div class="edge-panel p-8 md:col-span-8">
-          <p class="text-xs font-black uppercase tracking-[0.34em] text-neutral-500">Context</p>
-          <h3 class="font-display mt-5 max-w-3xl text-4xl font-black leading-tight text-white md:text-5xl">
-            Not every project needs its own big section.
-          </h3>
-          <p class="mt-6 max-w-2xl leading-8 text-neutral-400">
-            Clarity is the main brand now. Hexcheats is the marketplace side. Lazy Devs is older work. LazyAI and Xohus Interactive are part of the bigger picture, but they do not need to overpower the page.
-          </p>
+        <div class="reveal md:col-span-8" style="transition-delay: 100ms">
+          <div class="panel p-8 md:p-10">
+            <p class="max-w-4xl text-xl leading-10 text-neutral-300">
+              I build clean digital products, automation tools, Discord bots, Roblox utilities, payment systems, and modern web platforms. I focus on smooth UI, useful features, and fast execution.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="section-rule"></div>
+    <section class="px-5 pb-10 md:px-8">
+      <div class="mx-auto max-w-7xl overflow-hidden border-y border-white/10 py-4">
+        <div class="marquee">
+          <div class="marquee-track text-xs font-black uppercase tracking-[0.28em] text-neutral-500">
+            <span>Web development</span>
+            <span>Discord bots</span>
+            <span>Roblox scripting</span>
+            <span>UI/UX design</span>
+            <span>Payment systems</span>
+            <span>Automation tools</span>
+          </div>
+          <div class="marquee-track text-xs font-black uppercase tracking-[0.28em] text-neutral-500">
+            <span>Web development</span>
+            <span>Discord bots</span>
+            <span>Roblox scripting</span>
+            <span>UI/UX design</span>
+            <span>Payment systems</span>
+            <span>Automation tools</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="ecosystem" class="relative overflow-hidden border-y border-white/10 bg-white/[0.02] px-5 py-24 md:px-8">
-      <div class="grid-bg absolute inset-0 opacity-45"></div>
+    <section id="projects" class="relative px-5 py-24 md:px-8">
+      <div class="grid-field absolute inset-0 opacity-30"></div>
       <div class="relative z-10 mx-auto max-w-7xl">
-        <div class="grid gap-10 md:grid-cols-12">
-          <div class="reveal md:col-span-4">
-            <p class="mb-4 text-xs font-black uppercase tracking-[0.34em] text-neutral-400">
-              Project map
-            </p>
-            <h2 class="font-display text-4xl font-black leading-tight text-white md:text-6xl">
-              The public name has a few different things behind it.
+        <div class="mb-12 grid gap-6 md:grid-cols-12">
+          <div class="reveal md:col-span-7">
+            <p class="mb-4 text-xs font-black uppercase tracking-[0.34em] text-neutral-500">Projects</p>
+            <h2 class="font-display text-5xl font-black leading-none tracking-[-0.05em] text-white md:text-7xl">
+              Selected work.
             </h2>
           </div>
+          <p class="reveal max-w-md leading-8 text-neutral-400 md:col-span-4 md:col-start-9" style="transition-delay: 100ms">
+            A concise view of the public projects that matter most right now.
+          </p>
+        </div>
 
-          <div class="reveal md:col-span-8" style="transition-delay: 120ms">
-            <div class="grid gap-4">
-              <article class="project-line beam-border bg-black/40 p-6 pl-10 backdrop-blur-xl">
-                <div class="flex flex-wrap items-center gap-3">
-                  <h3 class="font-display text-2xl font-black text-white">Xohus</h3>
-                  <span class="border border-white/10 bg-white/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-neutral-400">Online name</span>
-                </div>
-                <p class="mt-4 max-w-3xl leading-8 text-neutral-400">
-                  The name I use online instead of my real name. It connects my branding, coding, Discord work, Roblox scripting, and business ideas.
-                </p>
-              </article>
-
-              <article class="project-line bg-black/40 p-6 pl-10 backdrop-blur-xl">
-                <div class="flex flex-wrap items-center gap-3">
-                  <h3 class="font-display text-2xl font-black text-white">Clarity</h3>
-                  <span class="border border-white/10 bg-white/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-neutral-400">Current main brand</span>
-                </div>
-                <p class="mt-4 max-w-3xl leading-8 text-neutral-400">
-                  My main brand now. It covers scripting/dev work, online tools, Roblox-related projects, AI and bot ideas, and other digital work. I moved this direction after Lazy Devs.
-                </p>
-              </article>
-
-              <article class="project-line bg-black/40 p-6 pl-10 backdrop-blur-xl">
-                <div class="flex flex-wrap items-center gap-3">
-                  <h3 class="font-display text-2xl font-black text-white">Lazy Devs</h3>
-                  <span class="border border-white/10 bg-white/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-neutral-400">Legacy brand</span>
-                  <span class="border border-white/10 bg-white/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-neutral-400">lazydevs.lol</span>
-                </div>
-                <p class="mt-4 max-w-3xl leading-8 text-neutral-400">
-                  An older cheats and scripts brand. Most of that work now belongs under Clarity, but Lazy Devs is still part of the history.
-                </p>
-              </article>
-
-              <div class="grid gap-4 md:grid-cols-2">
-                <article class="project-line bg-black/40 p-6 pl-10 backdrop-blur-xl">
-                  <h3 class="font-display text-2xl font-black text-white">Xohus Interactive</h3>
-                  <p class="mt-4 leading-8 text-neutral-400">
-                    A payment processor project under the Xohus name. It is currently down.
-                  </p>
-                </article>
-
-                <article class="project-line bg-black/40 p-6 pl-10 backdrop-blur-xl">
-                  <h3 class="font-display text-2xl font-black text-white">LazyAI</h3>
-                  <p class="mt-4 leading-8 text-neutral-400">
-                    An AI Discord bot idea with commands, auto-replies, memory, personality switching, image generation, web search, and message controls.
-                  </p>
-                </article>
+        <div class="grid gap-5 md:grid-cols-12">
+          <article class="panel beam reveal p-4 md:col-span-7">
+            <a href="https://claritydevs.lol" target="_blank" rel="noreferrer" class="block">
+              <div class="media-frame grid aspect-video place-items-center">
+                <div class="grid-field absolute inset-0 opacity-60"></div>
+                <img src="./clarity.png" alt="Clarity logo" class="logo-mark relative z-10" />
               </div>
+
+              <div class="mt-6 grid gap-6 md:grid-cols-12">
+                <div class="md:col-span-4">
+                  <span class="border border-white/10 bg-white/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-neutral-300">Active</span>
+                </div>
+                <div class="md:col-span-8">
+                  <h3 class="font-display text-4xl font-black tracking-[-0.04em] text-white">Clarity</h3>
+                  <p class="mt-4 leading-8 text-neutral-400">
+                    Current main brand/project for scripts, tools, and development work. Lazy Devs moved into Clarity.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <article class="panel beam reveal p-6 md:col-span-5" style="transition-delay: 100ms">
+            <div class="flex h-full flex-col justify-between gap-10">
+              <div>
+                <span class="border border-white/10 bg-white/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-neutral-300">Legacy / moved to Clarity</span>
+                <h3 class="font-display mt-8 text-4xl font-black tracking-[-0.04em] text-white">Lazy Devs</h3>
+                <p class="mt-4 leading-8 text-neutral-400">
+                  Older scripts/tools brand before moving the work into Clarity.
+                </p>
+              </div>
+              <p class="border-t border-white/10 pt-5 text-sm font-bold text-neutral-400">lazydevs.lol</p>
             </div>
-          </div>
-        </div>
+          </article>
 
-        <div class="reveal mt-16 grid gap-6 md:grid-cols-12" style="transition-delay: 180ms">
-          <div class="md:col-span-4">
-            <p class="text-xs font-black uppercase tracking-[0.34em] text-neutral-500">Capabilities</p>
-            <h3 class="font-display mt-4 text-3xl font-black leading-tight text-white">
-              Most of the work falls into three areas.
-            </h3>
-          </div>
-
-          <div class="grid gap-4 md:col-span-8 md:grid-cols-3">
-            <article class="edge-panel p-6">
-              <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Roblox scripting</p>
-              <h4 class="font-display mt-5 text-2xl font-black text-white">Script hubs and custom interfaces.</h4>
-              <p class="mt-4 leading-7 text-neutral-400">
-                Roblox Lua work with custom UIs, key systems, toggles, mobile-friendly layouts, and script hub layouts.
+          <article class="panel beam reveal p-6 md:col-span-12" style="transition-delay: 160ms">
+            <div class="grid gap-8 md:grid-cols-12 md:items-end">
+              <div class="md:col-span-7">
+                <span class="border border-white/10 bg-white/5 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-neutral-300">Down / paused</span>
+                <h3 class="font-display mt-8 text-5xl font-black tracking-[-0.05em] text-white md:text-7xl">
+                  Xohus Interactive
+                </h3>
+              </div>
+              <p class="max-w-xl leading-8 text-neutral-400 md:col-span-5">
+                Payment processor / platform project. Currently down but still part of my work.
               </p>
-            </article>
-
-            <article class="edge-panel p-6">
-              <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Discord / AI</p>
-              <h4 class="font-display mt-5 text-2xl font-black text-white">Bots that feel less empty.</h4>
-              <p class="mt-4 leading-7 text-neutral-400">
-                Discord bot ideas with commands, auto-replies, memory, personality settings, generated media, and simple controls.
-              </p>
-            </article>
-
-            <article class="edge-panel p-6">
-              <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Brand / store</p>
-              <h4 class="font-display mt-5 text-2xl font-black text-white">Names, pages, and store copy.</h4>
-              <p class="mt-4 leading-7 text-neutral-400">
-                Brand names, visuals, landing pages, product descriptions, and store text that feels clean without sounding fake.
-              </p>
-            </article>
-          </div>
-        </div>
-
-        <div class="reveal mt-14 border-t border-white/10 pt-8 text-sm leading-7 text-neutral-500" style="transition-delay: 240ms">
-          <p>
-            Keyora became Hexcheats. ClearIntel is only a possible future idea, not an active project. Clarity Interactive is not a current project name; the correct name is Clarity.
-          </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <div class="section-rule"></div>
+    <div class="section-line"></div>
 
-    <section id="about" class="relative overflow-hidden border-y border-white/10 bg-white/[0.025]">
-      <div class="shader-plane opacity-50"></div>
-      <div class="relative z-10 mx-auto grid max-w-7xl gap-12 px-5 py-24 md:grid-cols-12 md:px-8">
-        <div class="reveal md:col-span-4">
-          <p class="text-xs font-black uppercase tracking-[0.34em] text-neutral-400">
-            About
-          </p>
-          <div class="image-cut mt-8 aspect-[3/4] max-w-sm">
-            <img src="./me.png" alt="xohus portrait" />
-            <div class="scanline"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-          </div>
-        </div>
-
-        <div class="reveal md:col-span-8">
-          <h2 class="font-display max-w-4xl text-4xl font-black leading-tight text-white md:text-6xl">
-            I care about making projects look real, not rushed.
+    <section id="focus" class="px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal mb-12 max-w-3xl">
+          <p class="mb-4 text-xs font-black uppercase tracking-[0.34em] text-neutral-500">Skills / Focus</p>
+          <h2 class="font-display text-5xl font-black leading-none tracking-[-0.05em] text-white md:text-7xl">
+            What I build around.
           </h2>
+        </div>
 
-          <div class="mt-10 grid gap-5 md:grid-cols-2">
-            <div class="edge-panel p-7">
-              <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Approach</p>
-              <p class="mt-5 leading-8 text-neutral-400">
-                Most of my work starts messy: a name, a Discord idea, a script hub, a store page, or a brand direction. I try to turn that into something people can understand quickly.
-              </p>
-            </div>
-
-            <div class="edge-panel p-7">
-              <p class="text-xs font-black uppercase tracking-[0.28em] text-neutral-500">Standard</p>
-              <p class="mt-5 leading-8 text-neutral-400">
-                I do not want everything to look like the same template. Each project should have its own feel while still being clean and easy to read.
-              </p>
-            </div>
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="panel reveal p-6">
+            <h3 class="font-display text-2xl font-black text-white">Web development</h3>
+            <p class="mt-4 leading-7 text-neutral-400">Modern pages, clean layouts, and practical web platforms.</p>
           </div>
-
-          <div class="mt-5 edge-panel p-7">
-            <p class="font-display text-3xl font-black leading-tight text-white">
-              Xohus is the public name. Clarity is the main brand now. Hexcheats is where Keyora ended up. Lazy Devs, LazyAI, and Xohus Interactive are part of the path.
-            </p>
+          <div class="panel reveal p-6" style="transition-delay: 60ms">
+            <h3 class="font-display text-2xl font-black text-white">Discord bots</h3>
+            <p class="mt-4 leading-7 text-neutral-400">Command systems, automation, AI ideas, and community tools.</p>
+          </div>
+          <div class="panel reveal p-6" style="transition-delay: 120ms">
+            <h3 class="font-display text-2xl font-black text-white">Roblox scripting</h3>
+            <p class="mt-4 leading-7 text-neutral-400">Utilities, script hubs, custom interfaces, and mobile-friendly flows.</p>
+          </div>
+          <div class="panel reveal p-6" style="transition-delay: 180ms">
+            <h3 class="font-display text-2xl font-black text-white">UI/UX design</h3>
+            <p class="mt-4 leading-7 text-neutral-400">Simple screens, strong spacing, and interfaces that feel easy to use.</p>
+          </div>
+          <div class="panel reveal p-6" style="transition-delay: 240ms">
+            <h3 class="font-display text-2xl font-black text-white">Payment systems</h3>
+            <p class="mt-4 leading-7 text-neutral-400">Platform ideas and payment flows connected to online products.</p>
+          </div>
+          <div class="panel reveal p-6" style="transition-delay: 300ms">
+            <h3 class="font-display text-2xl font-black text-white">Automation tools</h3>
+            <p class="mt-4 leading-7 text-neutral-400">Small tools and systems that reduce manual work.</p>
+          </div>
+          <div class="panel reveal p-6 md:col-span-3" style="transition-delay: 360ms">
+            <h3 class="font-display text-2xl font-black text-white">Branding and product building</h3>
+            <p class="mt-4 max-w-3xl leading-7 text-neutral-400">Names, positioning, product pages, and the parts that make a project feel finished.</p>
           </div>
         </div>
       </div>
     </section>
-
-    <div class="section-rule"></div>
 
     <section id="contact" class="relative overflow-hidden px-5 py-24 md:px-8">
-      <div class="glow right-[-160px] top-[-100px]"></div>
-
+      <div class="aurora opacity-60"></div>
       <div class="relative z-10 mx-auto grid max-w-7xl gap-10 md:grid-cols-12 md:items-end">
         <div class="reveal md:col-span-7">
-          <p class="mb-4 text-xs font-black uppercase tracking-[0.34em] text-neutral-400">
-            Contact
-          </p>
-
-          <h2 class="max-w-4xl text-5xl font-black leading-none tracking-[-0.08em] text-white md:text-7xl">
-            Reach out directly.
+          <p class="mb-4 text-xs font-black uppercase tracking-[0.34em] text-neutral-500">Contact</p>
+          <h2 class="font-display text-6xl font-black leading-none tracking-[-0.07em] text-white md:text-8xl">
+            Let’s build something clean.
           </h2>
-
           <p class="mt-7 max-w-xl leading-8 text-neutral-400">
-            For Clarity, Hexcheats, Roblox scripting, bot ideas, branding work, collaborations, or project-related messages, use one of the channels below.
+            For projects, collaborations, or direct questions, reach out below.
           </p>
         </div>
 
-        <div class="reveal md:col-span-5" style="transition-delay: 120ms">
-          <div class="edge-panel p-6">
+        <div class="reveal md:col-span-5" style="transition-delay: 100ms">
+          <div class="panel p-6">
             <div class="space-y-3">
-              <a href="mailto:xohus@tuta.com" class="magnetic shimmer-link flex items-center justify-between border border-white/10 bg-white/[0.03] px-4 py-4 text-sm font-bold text-white transition hover:border-white/45 hover:bg-white/10">
+              <a href="mailto:xohus@tuta.com" class="shimmer flex items-center justify-between border border-white/10 bg-white/[0.03] px-4 py-4 text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/10">
                 <span>xohus@tuta.com</span>
                 <span>Email</span>
               </a>
-
-              <a href="https://wa.me/15815912714" target="_blank" rel="noreferrer" class="magnetic shimmer-link flex items-center justify-between border border-white/10 bg-white/[0.03] px-4 py-4 text-sm font-bold text-white transition hover:border-white/45 hover:bg-white/10">
+              <a href="https://wa.me/15815912714" target="_blank" rel="noreferrer" class="shimmer flex items-center justify-between border border-white/10 bg-white/[0.03] px-4 py-4 text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/10">
                 <span>+1 581 591 2714</span>
                 <span>WhatsApp</span>
               </a>
-
-              <button id="copyDiscord" class="magnetic shimmer-link flex w-full items-center justify-between border border-white/10 bg-white/[0.03] px-4 py-4 text-left text-sm font-bold text-white transition hover:border-white/45 hover:bg-white/10">
+              <button id="copyDiscord" class="shimmer flex w-full items-center justify-between border border-white/10 bg-white/[0.03] px-4 py-4 text-left text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/10">
                 <span>kp9b</span>
                 <span id="discordLabel">Discord</span>
               </button>
@@ -933,58 +546,29 @@
 
   <footer class="border-t border-white/10 px-5 py-8 md:px-8">
     <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-neutral-500 md:flex-row md:items-center md:justify-between">
-      <p>© <span id="year"></span> xohus. Built with a clear standard.</p>
-      <p>Clarity / Hexcheats / digital projects.</p>
+      <p>© <span id="year"></span> Xohus.</p>
+      <p>Clarity / Lazy Devs / Xohus Interactive.</p>
     </div>
   </footer>
 
   <script>
     const root = document.documentElement;
     const progress = document.getElementById("scrollProgress");
-    const magneticItems = document.querySelectorAll(".magnetic");
-    const edgePanels = document.querySelectorAll(".edge-panel, .image-cut");
+    const panels = document.querySelectorAll(".panel, .media-frame");
     const reveals = document.querySelectorAll(".reveal");
-    const particles = document.getElementById("particles");
     const copyDiscord = document.getElementById("copyDiscord");
-    const copyDiscordTop = document.getElementById("copyDiscordTop");
     const discordLabel = document.getElementById("discordLabel");
 
-    for (let i = 0; i < 34; i++) {
-      const particle = document.createElement("span");
-      particle.className = "particle";
-      particle.style.left = `${Math.random() * 100}%`;
-      particle.style.top = `${Math.random() * 100}%`;
-      particle.style.animationDelay = `${Math.random() * 8}s`;
-      particle.style.animationDuration = `${6 + Math.random() * 7}s`;
-      particles.appendChild(particle);
-    }
-
-    window.addEventListener("pointermove", (e) => {
-      root.style.setProperty("--x", `${e.clientX}px`);
-      root.style.setProperty("--y", `${e.clientY}px`);
-
+    window.addEventListener("pointermove", (event) => {
+      root.style.setProperty("--mx", `${event.clientX}px`);
+      root.style.setProperty("--my", `${event.clientY}px`);
     });
 
-    magneticItems.forEach((item) => {
-      item.addEventListener("mousemove", (event) => {
-        const rect = item.getBoundingClientRect();
-        const x = event.clientX - rect.left - rect.width / 2;
-        const y = event.clientY - rect.top - rect.height / 2;
-        item.style.transform = `translate(${x * 0.14}px, ${y * 0.14}px)`;
-      });
-
-      item.addEventListener("mouseleave", () => {
-        item.style.transform = "translate(0, 0)";
-      });
-    });
-
-    edgePanels.forEach((panel) => {
-      panel.addEventListener("mousemove", (event) => {
+    panels.forEach((panel) => {
+      panel.addEventListener("pointermove", (event) => {
         const rect = panel.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        panel.style.setProperty("--mx", `${x}px`);
-        panel.style.setProperty("--my", `${y}px`);
+        panel.style.setProperty("--px", `${event.clientX - rect.left}px`);
+        panel.style.setProperty("--py", `${event.clientY - rect.top}px`);
       });
     });
 
@@ -992,30 +576,28 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add("show");
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.14 });
 
-    reveals.forEach((el) => observer.observe(el));
+    reveals.forEach((item) => observer.observe(item));
 
     window.addEventListener("scroll", () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (window.scrollY / height) * 100;
-      progress.style.width = `${scrolled}%`;
+      progress.style.width = `${(window.scrollY / height) * 100}%`;
     });
 
-    async function copyDiscordUser() {
-      try {
-        await navigator.clipboard.writeText("kp9b");
-        if (discordLabel) {
-          discordLabel.textContent = "copied";
-          setTimeout(() => discordLabel.textContent = "Discord", 1200);
+    if (copyDiscord) {
+      copyDiscord.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText("kp9b");
+          discordLabel.textContent = "Copied";
+          setTimeout(() => {
+            discordLabel.textContent = "Discord";
+          }, 1200);
+        } catch {
+          discordLabel.textContent = "kp9b";
         }
-      } catch {
-        if (discordLabel) discordLabel.textContent = "kp9b";
-      }
+      });
     }
-
-    if (copyDiscord) copyDiscord.addEventListener("click", copyDiscordUser);
-    if (copyDiscordTop) copyDiscordTop.addEventListener("click", copyDiscordUser);
 
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
