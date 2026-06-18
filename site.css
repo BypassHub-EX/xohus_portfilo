@@ -840,13 +840,14 @@ h1 {
   min-height: 120px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   gap: 9px;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
   background: rgba(0, 0, 0, 0.24);
-  text-align: left;
+  text-align: center;
   transition: transform 180ms ease, border-color 180ms ease;
 }
 
@@ -1167,6 +1168,9 @@ h1 {
   color: var(--text);
   cursor: pointer;
   border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   transition: transform 180ms ease, border-color 180ms ease;
 }
 
